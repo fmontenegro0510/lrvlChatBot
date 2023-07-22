@@ -66,6 +66,7 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
+        $question = Question::findOrFail($id);
         return view('questions.edit', compact('question'));
 
     }
@@ -82,7 +83,8 @@ class QuestionController extends Controller
         $request->validate([
             'question' => 'required',
         ]);
-
+        
+        $question = Question::findOrFail($id);
         $question->update($request->all());
 
         return redirect()->route('questions.index')
@@ -97,6 +99,7 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
+        $question = Question::findOrFail($id);
         $question->delete();
 
         return redirect()->route('questions.index')

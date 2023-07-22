@@ -21,7 +21,7 @@
                         <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-primary">Editar</a>
                         <form action="{{ route('questions.destroy', $question->id) }}" method="post" style="display: inline-block">
                             @csrf
-                            @method('DELETE')
+                            @method('DELETE')                            
                             <button type="submit" class="btn btn-danger">Eliminar</button>
                         </form>
                     </td>
